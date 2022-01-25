@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,200&display=swap');
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body {
+  background-color: #2F474D;
+  font-family: "Exo", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  appearance: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+body::-webkit-scrollbar-track {
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.menu {
+  width: 100vw;
+  height: 60px;
+  max-width: 100%;
+  background-color: rgb(31, 48, 61, 0.7);
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu > h3 {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 150px;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.player {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.pexels.com/photos/2250092/pexels-photo-2250092.jpeg') no-repeat center;
+  background-size: cover;
+  position: relative;
+  margin-top: -60px;
+  z-index: 1;
+}
+
+.player::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.current-track {
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 70px 20px rgba(255, 255, 255, 0.5);
+  position: relative;
+  transition: all 700ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-track::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.2);
+  transition: all 700ms;
+  z-index: -1;
+}
+
+.current-track:hover::after {
+  box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.3);
+}
+
+.current-track:hover {
+  transform: scale(1.05);
+}
+
+.current-track-content {
+  position: absolute;
+}
+
+.current-track-img-content {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.current-track-img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.controls {
+  min-width: 250px;
+  height: 70px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.control {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  border: 1.5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondary {
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+}
+
+.play {
+  width: 30px;
+  height: auto;
+  margin-left: 7px;
+}
+
+.pause {
+  width: 25px;
+  height: auto;
+}
+
+.prev {
+  width: 15px;
+  height: auto;
+}
+
+.next {
+  width: 15px;
+  height: auto;
+}
+
+
+.current-track-name {
+  margin-top: 20px;
+  height: fit-content;
+  width: 250px;
+  display: flex;
+  align-items:flex-start;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+.current-track-name > h4 {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translate(50%);
+  animation: pasarela 10s ease-in-out infinite alternate;
+}
+
+.current-track-time {
+  width: 250px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.time {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+input[type='range'].timeline {
+  appearance: none;
+  background-color: white;
+  width: 100%;
+  height: 3px;
+}
+
+input[type='range'].timeline::-webkit-slider-thumb {
+  appearance: none;
+  cursor: pointer;
+  background: white;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+}
+
+@keyframes pasarela {
+  100% {
+    transform: translateX(-50%);
+  }
+}
